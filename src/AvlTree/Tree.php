@@ -1,6 +1,6 @@
 <?php
 
-namespace MarioNowaksgiven\BinaryTree;
+namespace MarioNowaksGiven\AvlTree;
 
 interface Tree
 {

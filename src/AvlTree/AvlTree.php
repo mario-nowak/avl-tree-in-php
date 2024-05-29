@@ -1,17 +1,17 @@
 <?php
 
-namespace MarioNowaksgiven\BinaryTree;
+namespace MarioNowaksGiven\AvlTree;
 
-class BinaryTree implements Tree
+class AvlTree implements Tree
 {
-    public ?BinaryTreeNode $root = null;
+    public ?AvlTreeNode $root = null;
 
     public function __construct(
         ...$values,
     )
     {
         if (count($values) and !$this->root) {
-            $this->root = new BinaryTreeNode($values[0]);
+            $this->root = new AvlTreeNode($values[0]);
         }
         foreach ($values as $value) {
             $this->root?->insert($value);
@@ -24,7 +24,7 @@ class BinaryTree implements Tree
         $this->root = $this->root->getRoot();
     }
 
-    public function find(int $valueToFind): ?BinaryTreeNode
+    public function find(int $valueToFind): ?AvlTreeNode
     {
         return $this->root?->find($valueToFind);
     }

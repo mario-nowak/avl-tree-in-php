@@ -1,12 +1,12 @@
 {
-    "name": "mario-nowaksgiven/binary-tree",
+    "name": "mario-nowaksgiven/avl-tree",
     "type": "project",
     "require-dev": {
         "phpunit/phpunit": "^11.1"
     },
     "autoload": {
         "psr-4": {
-            "MarioNowaksgiven\\": "src/"
+            "MarioNowaksGiven\\": "src/"
         }
     },
     "authors": [

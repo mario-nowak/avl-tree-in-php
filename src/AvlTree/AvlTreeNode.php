@@ -1,18 +1,18 @@
 <?php
 
-namespace MarioNowaksgiven\BinaryTree;
+namespace MarioNowaksGiven\AvlTree;
 
-class BinaryTreeNode implements Tree
+class AvlTreeNode implements Tree
 {
-    public ?BinaryTreeNode $left = null;
-    public ?BinaryTreeNode $right = null;
-    public ?BinaryTreeNode $parent = null;
+    public ?AvlTreeNode $left = null;
+    public ?AvlTreeNode $right = null;
+    public ?AvlTreeNode $parent = null;
 
     public function __construct(
         public int $value,
     ) { }
 
-    public function find(int $valueToFind): ?BinaryTreeNode
+    public function find(int $valueToFind): ?AvlTreeNode
     {
         if ($valueToFind > $this->value) {
             return $this->right?->find($valueToFind);
@@ -31,7 +31,7 @@ class BinaryTreeNode implements Tree
             return;
         }
 
-        $newNode =  new BinaryTreeNode($valueToInsert);
+        $newNode =  new AvlTreeNode($valueToInsert);
         if ($valueToInsert > $this->value) {
             if ($this->right) {
                 $this->right->insert($valueToInsert);
@@ -50,7 +50,7 @@ class BinaryTreeNode implements Tree
         $this->parent?->rebalance(child: $this, grandchild: $newNode);
     }
 
-    public function rebalance(?BinaryTreeNode $child, ?BinaryTreeNode $grandchild): void {
+    public function rebalance(?AvlTreeNode $child, ?AvlTreeNode $grandchild): void {
         $balanceFactor = $this->getBalanceFactor();
         $isUnbalanced = ($balanceFactor > 1) || ($balanceFactor < -1);
 
@@ -132,7 +132,7 @@ class BinaryTreeNode implements Tree
         return $treeAsString . $leftPart .  $rightPart;
     }
 
-    public function getRoot(): BinaryTreeNode
+    public function getRoot(): AvlTreeNode
     {
         $isRoot = $this->parent === null;
         if ($isRoot) {
@@ -174,7 +174,7 @@ class BinaryTreeNode implements Tree
         $this->parent = $newParent;
     }
 
-    public function setLeftChild(?BinaryTreeNode $node)
+    public function setLeftChild(?AvlTreeNode $node)
     {
         $this->left = $node;
         if ($node) {
@@ -182,7 +182,7 @@ class BinaryTreeNode implements Tree
         }
     }
 
-    public function setRightChild(?BinaryTreeNode $node){
+    public function setRightChild(?AvlTreeNode $node){
         $this->right = $node;
         if ($node) {
             $node->parent = $this;
