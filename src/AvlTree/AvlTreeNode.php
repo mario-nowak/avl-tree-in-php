@@ -91,16 +91,16 @@ class AvlTreeNode implements Tree
 
     public function asArray(): array
     {
-        $binaryTreeAsList = [];
+        $avlTreeAsArray = [];
         if ($this->left) {
-            $binaryTreeAsList = [...$binaryTreeAsList, ...$this->left->asArray()];
+            $avlTreeAsArray = [...$avlTreeAsArray, ...$this->left->asArray()];
         }
-        $binaryTreeAsList[] = $this->value;
+        $avlTreeAsArray[] = $this->value;
         if ($this->right) {
-            $binaryTreeAsList = [...$binaryTreeAsList, ...$this->right->asArray()];
+            $avlTreeAsArray = [...$avlTreeAsArray, ...$this->right->asArray()];
         }
 
-        return $binaryTreeAsList;
+        return $avlTreeAsArray;
     }
 
     public function asString(int $depth = 0): string
